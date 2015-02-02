@@ -29,7 +29,12 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
-
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
+    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -342,6 +347,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-watchify');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
